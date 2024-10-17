@@ -6,12 +6,12 @@
  * @property {string} name - The name of the cheese.
  * @property {number} pricePerKilo - The price of the cheese per kilogram.
  * @property {string} colour - The colour of the cheese.
- * // @property {Buffer} picture - The picture of the cheese (commented out).
+ * @property {Buffer} picture - The picture of the cheese (optional).
  */
 export interface Cheese {
     id: number;
     name: string;
     pricePerKilo: number;
     colour: string;
-    // picture: Buffer;
+    picture?: Buffer | string | null;
 }

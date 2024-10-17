@@ -1,0 +1,292 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Cheese API",
+    "description": "API for managing cheeses, including creating, reading, updating, and deleting cheeses as well as calculating cheese costs and retrieving pictures.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/cheeses": {
+      "post": {
+        "summary": "Create a new cheese",
+        "description": "Creates a new cheese entry in the database.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cheese"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cheese created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cheese"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input or creation failed"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all cheeses",
+        "description": "Retrieves all cheeses.",
+        "responses": {
+          "200": {
+            "description": "List of cheeses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cheese"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to retrieve cheeses"
+          }
+        }
+      }
+    },
+    "/cheeses/{id}": {
+      "get": {
+        "summary": "Get cheese by ID",
+        "description": "Retrieves a specific cheese by its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cheese found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cheese"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cheese not found"
+          },
+          "500": {
+            "description": "Failed to retrieve cheese"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update cheese by ID",
+        "description": "Updates an existing cheese by its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cheese"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cheese updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cheese"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cheese not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete cheese by ID",
+        "description": "Deletes a specific cheese by its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cheese deleted successfully"
+          },
+          "404": {
+            "description": "Cheese not found"
+          }
+        }
+      }
+    },
+    "/cheeses/{id}/price": {
+      "get": {
+        "summary": "Get cheese price by ID",
+        "description": "Retrieves the price of a specific cheese by its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Price retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cheeseId": { "type": "integer" },
+                    "price": { "type": "number" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cheese not found"
+          },
+          "500": {
+            "description": "Failed to retrieve price"
+          }
+        }
+      }
+    },
+    "/cheeses/{id/picture": {
+      "get": {
+        "summary": "Get cheese picture by ID",
+        "description": "Retrieves the picture of a specific cheese by its ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Picture retrieved successfully",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cheese picture not found"
+          },
+          "500": {
+            "description": "Failed to retrieve picture"
+          }
+        }
+      }
+    },
+    "/cheeses/{id}/cost/{weight}": {
+      "get": {
+        "summary": "Calculate cost by weight",
+        "description": "Calculates the cost of a cheese for a given weight.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "weight",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cost calculated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cheeseId": { "type": "integer" },
+                    "weight": { "type": "number" },
+                    "totalCost": { "type": "number" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid weight"
+          },
+          "404": {
+            "description": "Cheese not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Cheese": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "pricePerKilo": { "type": "number" },
+          "colour": { "type": "string" }
+        },
+        "required": ["name", "pricePerKilo", "colour"]
+      }
+    }
+  }
+}

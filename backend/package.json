@@ -17,6 +17,7 @@
     "typescript": "^5.6.3"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "copy-images": "cp -R src/images dist/images"
   }
 }

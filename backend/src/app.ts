@@ -1,4 +1,6 @@
 import express, { Application } from 'express';
+
+// Import the CheeseRoutes, CheeseRepository and CheeseService classes
 import { CheeseRepository as CheeseRepositoryClass } from './repository/cheeseRepository';
 import { CheeseService as CheeseServiceClass } from './service/cheeseService';
 import { CheeseRoutes } from './routes/cheeseRoutes';
@@ -7,20 +9,21 @@ import { CheeseRoutes } from './routes/cheeseRoutes';
 const cheeseRepository = new CheeseRepositoryClass();
 const cheeseService = new CheeseServiceClass(cheeseRepository);
 
-import swaggerJsDoc from 'swagger-jsdoc';
+// Import swaggerUi and swaggerDocument
 import swaggerUi from 'swagger-ui-express';
-import { swaggerOptions } from './documentation/swagger';
-
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
+import * as swaggerDocument from './documentation/swagger.json'; 
 
 // Create an Express app
 const app: Application = express();
 
-// Inject the cheeseService into the cheese routes
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+// Use the cheeseService into the cheese routes
 app.use('/api', CheeseRoutes(cheeseService));
 
-// Middleware for Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+// Serve the static Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Start the server
 const PORT = 5000;
