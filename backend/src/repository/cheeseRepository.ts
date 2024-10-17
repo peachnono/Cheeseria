@@ -68,7 +68,7 @@ export class CheeseRepository {
   ];
 
   // Create a new cheese
-  public async createCheese(newCheese: Cheese): Promise<Cheese> {
+  public createCheese(newCheese: Cheese): Cheese {
     const existingCheese = this.cheeses.find(
       (cheese) => cheese.id === newCheese.id
     );
@@ -87,13 +87,13 @@ export class CheeseRepository {
   }
 
   // Get cheese by ID
-  public async getCheeseById(id: number): Promise<Cheese | null> {
+  public getCheeseById(id: number): Cheese | null {
     const cheese = this.cheeses.find((cheese) => cheese.id === id);
     return cheese || null; // Return null instead of undefined
   }
 
   // Update an existing cheese
-  public async updateCheese(updatedCheese: Cheese): Promise<Cheese> {
+  public updateCheese(updatedCheese: Cheese): Cheese {
     const index = this.cheeses.findIndex(
       (cheese) => cheese.id === updatedCheese.id
     );
@@ -108,13 +108,14 @@ export class CheeseRepository {
   }
 
   // Delete an existing cheese by ID
-  public async deleteCheese(id: number): Promise<void> {
+  public deleteCheese(id: number): void {
     const index = this.cheeses.findIndex((cheese) => cheese.id === id);
 
     if (index === -1) {
       throw new Error("Cheese not found");
     }
 
-    this.cheeses.splice(index, 1); // Remove the cheese from the array
+    this.cheeses.splice(index, 1); 
   }
+
 }

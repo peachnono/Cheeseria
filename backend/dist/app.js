@@ -37,6 +37,7 @@ const cheeseService = new cheeseService_1.CheeseService(cheeseRepository);
 // Import swaggerUi and swaggerDocument
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swaggerDocument = __importStar(require("./documentation/swagger.json"));
+const path_1 = __importDefault(require("path"));
 // Create an Express app
 const app = (0, express_1.default)();
 // Middleware to parse JSON bodies
@@ -45,6 +46,8 @@ app.use(express_1.default.json());
 app.use('/api', (0, cheeseRoutes_1.CheeseRoutes)(cheeseService));
 // Serve the static Swagger documentation
 app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDocument));
+// Serve the frontend
+app.use(express_1.default.static(path_1.default.join(__dirname, '../frontend/build')));
 // Start the server
 const PORT = 5000;
 app.listen(PORT, () => {

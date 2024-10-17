@@ -92,7 +92,7 @@ class CheeseRepository {
         ];
     }
     // Create a new cheese
-    async createCheese(newCheese) {
+    createCheese(newCheese) {
         const existingCheese = this.cheeses.find((cheese) => cheese.id === newCheese.id);
         if (existingCheese) {
             throw new Error("Cheese with the same ID already exists");
@@ -105,12 +105,12 @@ class CheeseRepository {
         return this.cheeses;
     }
     // Get cheese by ID
-    async getCheeseById(id) {
+    getCheeseById(id) {
         const cheese = this.cheeses.find((cheese) => cheese.id === id);
         return cheese || null; // Return null instead of undefined
     }
     // Update an existing cheese
-    async updateCheese(updatedCheese) {
+    updateCheese(updatedCheese) {
         const index = this.cheeses.findIndex((cheese) => cheese.id === updatedCheese.id);
         if (index === -1) {
             throw new Error("Cheese not found");
@@ -120,12 +120,12 @@ class CheeseRepository {
         return updatedCheese;
     }
     // Delete an existing cheese by ID
-    async deleteCheese(id) {
+    deleteCheese(id) {
         const index = this.cheeses.findIndex((cheese) => cheese.id === id);
         if (index === -1) {
             throw new Error("Cheese not found");
         }
-        this.cheeses.splice(index, 1); // Remove the cheese from the array
+        this.cheeses.splice(index, 1);
     }
 }
 exports.CheeseRepository = CheeseRepository;

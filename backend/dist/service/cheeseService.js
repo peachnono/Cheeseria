@@ -18,13 +18,11 @@ class CheeseService {
      * @returns A promise that resolves to the newly created cheese.
      * @throws An error if a cheese with the same ID already exists.
      */
-    async createCheese(cheese) {
-        try {
-            return await this.cheeseRepository.createCheese(cheese);
-        }
-        catch (error) {
+    createCheese(cheese) {
+        if (this.cheeseRepository.getCheeseById(cheese.id)) {
             throw new Error(`Failed to create cheese: Cheese with ID ${cheese.id} already exists`);
         }
+        return this.cheeseRepository.createCheese(cheese);
     }
     // Get all cheeses with Base64-encoded pictures
     getCheeses() {
@@ -36,8 +34,8 @@ class CheeseService {
         }));
     }
     // Get a single cheese by ID
-    async getCheese(id) {
-        const cheese = await this.cheeseRepository.getCheeseById(id);
+    getCheese(id) {
+        const cheese = this.cheeseRepository.getCheeseById(id);
         return cheese
             ? {
                 ...cheese,
@@ -53,8 +51,8 @@ class CheeseService {
      * @returns A promise that resolves to the price per kilo of the cheese.
      * @throws An error if the cheese is not found.
      */
-    async getCheesePrice(id) {
-        const cheese = await this.cheeseRepository.getCheeseById(id);
+    getCheesePrice(id) {
+        const cheese = this.cheeseRepository.getCheeseById(id);
         if (!cheese) {
             throw new Error("Cheese not found");
         }
@@ -66,8 +64,8 @@ class CheeseService {
      * @returns A promise that resolves to the updated cheese.
      * @throws An error if the cheese does not exist.
      */
-    async updateCheese(cheese) {
-        const existingCheese = await this.cheeseRepository.getCheeseById(cheese.id);
+    updateCheese(cheese) {
+        const existingCheese = this.cheeseRepository.getCheeseById(cheese.id);
         if (!existingCheese) {
             throw new Error("Cheese not found");
         }
@@ -79,8 +77,8 @@ class CheeseService {
      * @param id - The ID of the cheese to retrieve the picture for.
      * @returns A promise that resolves to the picture buffer or null if not found.
      */
-    async getCheesePicture(id) {
-        const cheese = await this.cheeseRepository.getCheeseById(id);
+    getCheesePicture(id) {
+        const cheese = this.cheeseRepository.getCheeseById(id);
         if (!cheese || !cheese.picture) {
             return null; // Return null if no cheese or picture found
         }
@@ -97,8 +95,8 @@ class CheeseService {
      * @returns A promise that resolves when the cheese is deleted.
      * @throws An error if the cheese is not found.
      */
-    async deleteCheese(id) {
-        await this.cheeseRepository.deleteCheese(id);
+    deleteCheese(id) {
+        this.cheeseRepository.deleteCheese(id);
     }
     /**
      * Calculates the total cost for a given weight of cheese.
@@ -107,8 +105,8 @@ class CheeseService {
      * @returns A promise that resolves to the total cost.
      * @throws An error if the cheese is not found.
      */
-    async calculateCheeseCost(cheeseId, weightInKilos) {
-        const cheese = await this.cheeseRepository.getCheeseById(cheeseId); // Await the Promise
+    calculateCheeseCost(cheeseId, weightInKilos) {
+        const cheese = this.cheeseRepository.getCheeseById(cheeseId);
         if (!cheese) {
             throw new Error("Cheese not found");
         }

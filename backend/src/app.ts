@@ -26,6 +26,7 @@ app.use('/api', CheeseRoutes(cheeseService));
 // Serve the static Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+// Serve the frontend
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // Start the server
