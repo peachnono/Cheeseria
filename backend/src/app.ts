@@ -12,6 +12,7 @@ const cheeseService = new CheeseServiceClass(cheeseRepository);
 // Import swaggerUi and swaggerDocument
 import swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from './documentation/swagger.json'; 
+import path from 'path';
 
 // Create an Express app
 const app: Application = express();
@@ -24,6 +25,8 @@ app.use('/api', CheeseRoutes(cheeseService));
 
 // Serve the static Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // Start the server
 const PORT = 5000;
