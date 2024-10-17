@@ -18,6 +18,8 @@
     "typescript": "^5.6.3"
   },
   "scripts": {
+    "start": "node dist/app.js",
+    "build": "npx tsc",
     "test": "jest",
     "copy-images": "cp -R src/images dist/images"
   }

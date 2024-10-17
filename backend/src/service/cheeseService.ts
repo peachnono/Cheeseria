@@ -18,7 +18,7 @@ export class CheeseService {
   /**
    * Creates a new cheese.
    * @param cheese - The new cheese object to create.
-   * @returns A promise that resolves to the newly created cheese.
+   * @returns Makes a new created cheese.
    * @throws An error if a cheese with the same ID already exists.
    */
   createCheese(cheese: Cheese): Cheese {
@@ -56,7 +56,7 @@ export class CheeseService {
   /**
    * Retrieves the price of a cheese by its ID.
    * @param id - The ID of the cheese to retrieve the price for.
-   * @returns A promise that resolves to the price per kilo of the cheese.
+   * @returns The price of the cheese based on the id given.
    * @throws An error if the cheese is not found.
    */
   getCheesePrice(id: number): number {
@@ -72,7 +72,7 @@ export class CheeseService {
   /**
    * Updates an existing cheese with new data.
    * @param cheese - The cheese object containing updated information.
-   * @returns A promise that resolves to the updated cheese.
+   * @returns Updated cheese data based on the ID given.
    * @throws An error if the cheese does not exist.
    */
   updateCheese(cheese: Cheese): Cheese {
