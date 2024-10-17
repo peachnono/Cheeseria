@@ -110,7 +110,7 @@ export class CheeseService {
   /**
    * Deletes a cheese by its ID.
    * @param id - The ID of the cheese to delete.
-   * @returns A promise that resolves when the cheese is deleted.
+   * @returns Cheese is deleted.
    * @throws An error if the cheese is not found.
    */
   deleteCheese(id: number): void {
@@ -121,7 +121,7 @@ export class CheeseService {
    * Calculates the total cost for a given weight of cheese.
    * @param cheeseId - The ID of the cheese.
    * @param weightInKilos - The weight of the cheese in kilograms.
-   * @returns A promise that resolves to the total cost.
+   * @returns The total cost.
    * @throws An error if the cheese is not found.
    */
   calculateCheeseCost(cheeseId: number, weightInKilos: number): number {
