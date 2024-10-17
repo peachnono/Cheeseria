@@ -1,6 +1,25 @@
 import express, { Request, Response } from 'express';
 import { CheeseService } from '../service/cheeseService';
 
+/**
+ * Defines the routes for the application.
+ *
+ * @param cheeseService - The service to handle cheese operations.
+ * @returns The router with defined cheese routes.
+ *
+ * @remarks
+ * This function sets up the following routes:
+ * - `GET /cheeses`: Retrieves all cheeses.
+ * - `GET /cheeses/:id`: Retrieves a specific cheese by its ID.
+ * - `GET /cheeses/:id/cost/:weight`: Calculates the cost of a specific cheese for a given weight.
+ *
+ * @example
+ * ```typescript
+ * const cheeseService = new CheeseService();
+ * const cheeseRoutes = CheeseRoutes(cheeseService);
+ * app.use('/api', cheeseRoutes);
+ * ```
+ */
 export const CheeseRoutes = (cheeseService: CheeseService) => {
   const router = express.Router();
 
