@@ -7,14 +7,14 @@ export class CheeseRepository {
       name: "Cheddar",
       pricePerKilo: 15,
       colour: "Yellow",
-      picture: Buffer.from("sampleImage1", "base64")
+    //   picture: Buffer.from("sampleImage1", "base64")
     },
     {
       id: 2,
       name: "Brie",
       pricePerKilo: 18,
       colour: "White",
-      picture: Buffer.from("sampleImage2", "base64")
+    //   picture: Buffer.from("sampleImage2", "base64")
     }
   ];
 

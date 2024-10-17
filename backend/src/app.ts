@@ -9,7 +9,7 @@ const cheeseService = new CheeseServiceClass(cheeseRepository);
 
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import { swaggerOptions } from './documentation/swagger'; // Import Swagger options
+import { swaggerOptions } from './documentation/swagger';
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 

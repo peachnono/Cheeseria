@@ -3,5 +3,5 @@ export interface Cheese {
     name: string;
     pricePerKilo: number;
     colour: string;
-    picture: Buffer;
+    // picture: Buffer;
 }
