@@ -43,7 +43,7 @@ export const CheeseRoutes = (cheeseService: CheeseService) => {
   // Get all cheeses
   router.get("/cheeses", (_: Request, res: Response): void => {
     try {
-      const cheeses = cheeseService.getCheeses(); 
+      const cheeses = cheeseService.getCheeses();
       res.json(cheeses);
     } catch (error) {
       res.status(500).json({ message: "Failed to get cheeses" });
@@ -99,22 +99,25 @@ export const CheeseRoutes = (cheeseService: CheeseService) => {
   });
 
   // Calculate the cheese cost for a given weight (in kilograms)
-  router.get("/cheeses/:id/cost/:weight", (req: Request, res: Response): void => {
-    const cheeseId = parseInt(req.params.id, 10);
-    const weight = parseFloat(req.params.weight);
+  router.get(
+    "/cheeses/:id/cost/:weight",
+    (req: Request, res: Response): void => {
+      const cheeseId = parseInt(req.params.id, 10);
+      const weight = parseFloat(req.params.weight);
 
-    if (isNaN(weight) || weight < 0) {
-      res.status(400).json({ message: "Invalid weight" });
-      return;
-    }
+      if (isNaN(weight) || weight < 0) {
+        res.status(400).json({ message: "Invalid weight" });
+        return;
+      }
 
-    try {
-      const totalCost = cheeseService.calculateCheeseCost(cheeseId, weight);
-      res.json({ cheeseId, weight, totalCost });
-    } catch (error) {
-      res.status(404).json({ message: (error as Error).message });
+      try {
+        const totalCost = cheeseService.calculateCheeseCost(cheeseId, weight);
+        res.json({ cheeseId, weight, totalCost });
+      } catch (error) {
+        res.status(404).json({ message: (error as Error).message });
+      }
     }
-  });
+  );
 
   // Update an existing cheese by ID
   router.put("/cheeses/:id", (req: Request, res: Response): void => {

@@ -9,7 +9,7 @@
         "/cheeses": {
             "post": {
                 "summary": "Create a new cheese",
-                "description": "Creates a new cheese entry in the database.",
+                "description": "Creates a new cheese entry in the repository.",
                 "requestBody": {
                     "required": true,
                     "content": {

@@ -13,12 +13,18 @@ const cheeseService = new CheeseServiceClass(cheeseRepository);
 import swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from './documentation/swagger.json'; 
 import path from 'path';
+const cors = require('cors');
 
 // Create an Express app
 const app: Application = express();
 
+app.use(cors());
+
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Serve images from the backend directory
+app.use('/images', express.static(path.join(__dirname, './images')));
 
 // Use the cheeseService into the cheese routes
 app.use('/api', CheeseRoutes(cheeseService));
@@ -27,7 +33,7 @@ app.use('/api', CheeseRoutes(cheeseService));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Serve the frontend
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static(path.join(__dirname, '../../frontend/build')));
 
 // Start the server
 const PORT = 5000;

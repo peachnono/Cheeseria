@@ -37,8 +37,8 @@ class CheeseRepository {
                 name: "Abondance",
                 pricePerKilo: 82,
                 colour: "Pale Yellow",
-                picture: fs.existsSync(path.join(__dirname, '../images/abondance.png'))
-                    ? fs.readFileSync(path.join(__dirname, '../images/abondance.png'))
+                picture: fs.existsSync(path.join(__dirname, '../images/abondance.jpg'))
+                    ? fs.readFileSync(path.join(__dirname, '../images/abondance.jpg'))
                     : undefined
             },
             {
@@ -46,7 +46,7 @@ class CheeseRepository {
                 // https://www.cheese.com/mimolette/
                 // https://deliss.com.au/collections/cheese/products/mimolette?variant=31581928226934
                 id: 2,
-                name: "Mimolette",
+                name: "Mimmolette",
                 pricePerKilo: 88,
                 colour: "Orange",
                 picture: fs.existsSync(path.join(__dirname, '../images/mimmolette.jpg'))
@@ -73,8 +73,8 @@ class CheeseRepository {
                 name: "Saint Nectaire",
                 pricePerKilo: 98,
                 colour: "Ivory",
-                picture: fs.existsSync(path.join(__dirname, '../images/saintNectaire.jpg'))
-                    ? fs.readFileSync(path.join(__dirname, '../images/saintNectaire.jpg'))
+                picture: fs.existsSync(path.join(__dirname, '../images/saint_nectaire.jpg'))
+                    ? fs.readFileSync(path.join(__dirname, '../images/saint_nectaire.jpg'))
                     : undefined
             },
             {
@@ -85,8 +85,8 @@ class CheeseRepository {
                 name: "Milawa Blue",
                 pricePerKilo: 85,
                 colour: "Blue",
-                picture: fs.existsSync(path.join(__dirname, '../images/milawaBlue.jpg'))
-                    ? fs.readFileSync(path.join(__dirname, '../images/milawaBlue.jpg'))
+                picture: fs.existsSync(path.join(__dirname, '../images/milawa_blue.jpg'))
+                    ? fs.readFileSync(path.join(__dirname, '../images/milawa_blue.jpg'))
                     : undefined
             }
         ];
