@@ -170,3 +170,4 @@ For any questions or inquiries, feel free to reach out:
 
 - Added user functionality to give admin users access to add, delete, and update cheeses.
 - The images are stored locally for simplicity but this is not considered scalable so the app would need a database instead.
+- I would also add a checkout system so the user can calculate the price of multiple cheeses at the same time.
