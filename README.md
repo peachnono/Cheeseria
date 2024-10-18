@@ -112,9 +112,9 @@ This API provides various endpoints for managing cheeses. Below is a list of ava
 
 ## Available Scripts
 
-In the project directory, you can run the following commands:
-
 ### Root Scripts
+
+In the project directory, you can run the following commands:
 
 #### Build the Docker Image
 
