@@ -1,0 +1,19 @@
+header {
+    text-align: center; 
+    padding: 20px; 
+    color: rgb(0, 0, 0); 
+    background-color: #FFDD33; 
+    border-bottom: 2px solid #53818e; 
+}
+
+h1 {
+    margin: 0; 
+    font-size: 2rem; 
+    font-family: 'Monaco', monospace; 
+}
+
+h4 {
+    margin: 2px 0 0; 
+    font-size: 1rem; 
+    font-family: 'Monaco', monospace; 
+}

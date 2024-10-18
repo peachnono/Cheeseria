@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,  // Disallow JavaScript files, ensure only TypeScript (.ts, .tsx) files
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",  // Enable JSX support
+    "noEmit": true       // Avoid emitting .js files when compiling
+  },
+  "include": ["src/**/*.tsx"],  // Include only .tsx files
+  "exclude": ["node_modules", "**/*.js"]  // Exclude JavaScript files
+}
