@@ -66,7 +66,7 @@ This API provides various endpoints for managing cheeses. Below is a list of ava
 
 - **POST** `/cheeses`
   - Creates a new cheese entry in the database.
-  - **Request Body:** A JSON object representing the cheese (e.g., `{ "name": "Abondance", "pricePerKilo": 50, "colour": "Yellow" }`).
+  - **Request Body:** A JSON object representing the cheese (e.g., `{ "name": "Abondance", "pricePerKilo": 82, "colour": "Pale Yellow" }`).
   - **Response:** Returns the created cheese object with a 201 status code.
 
 ### Read Cheese Data
