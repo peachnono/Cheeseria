@@ -107,7 +107,7 @@ class CheeseRepository {
     // Get cheese by ID
     getCheeseById(id) {
         const cheese = this.cheeses.find((cheese) => cheese.id === id);
-        return cheese || null; // Return null instead of undefined
+        return cheese || null;
     }
     // Update an existing cheese
     updateCheese(updatedCheese) {
