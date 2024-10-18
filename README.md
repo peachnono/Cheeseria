@@ -1,19 +1,30 @@
 
-# Project Title
+# PZ Cheeseria
 
-A concise description of your project, its purpose, and what it accomplishes. Include key features or goals to provide context to users.
+This is a very small-scale Cheese web application for all the cheese lovers out there.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [API Endpoints](#api-endpoints)
-- [Available Scripts](#available-scripts)
-  - [Root Scripts](#root-scripts)
-  - [Backend Scripts](#backend-scripts)
-- [Contact](#contact)
-- [Further Implementation](#further-implementation)
+- [PZ Cheeseria](#pz-cheeseria)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+  - [API Endpoints](#api-endpoints)
+    - [Create a New Cheese](#create-a-new-cheese)
+    - [Read Cheese Data](#read-cheese-data)
+    - [Update Cheese Data](#update-cheese-data)
+    - [Delete Cheese Data](#delete-cheese-data)
+  - [Available Scripts](#available-scripts)
+    - [Root Scripts](#root-scripts)
+      - [Build the Docker Image](#build-the-docker-image)
+      - [Run the Docker Container](#run-the-docker-container)
+    - [Backend Scripts](#backend-scripts)
+      - [Run API Tests](#run-api-tests)
+      - [Compile TypeScript Files](#compile-typescript-files)
+      - [Start the Server](#start-the-server)
+  - [Contact](#contact)
+  - [Technologies Used](#technologies-used-1)
 
 ## Features
 
@@ -33,17 +44,20 @@ This project utilizes the following technologies:
 Follow these steps to get your development environment up and running:
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/peachnono/Cheeseria.git
    ```
+
 2. Navigate into the project directory:
+
    ```bash
    cd Cheeseria
    ```
 
 ## API Endpoints
 
-For comprehensive API documentation, including detailed descriptions of each endpoint, request/response examples, and error codes, please visit the full documentation at `/api-docs`.
+For comprehensive API documentation, including detailed descriptions of each endpoint, request/response examples, and error codes, please visit the full documentation at `/api-docs`. The UML diagram of this can also be found at the root folder labeled "API Design.png"
 
 This API provides various endpoints for managing cheeses. Below is a list of available routes and their functionalities:
 
@@ -51,7 +65,7 @@ This API provides various endpoints for managing cheeses. Below is a list of ava
 
 - **POST** `/cheeses`
   - Creates a new cheese entry in the database.
-  - **Request Body:** A JSON object representing the cheese (e.g., `{ "name": "Cheddar", "pricePerKilo": 50, "colour": "Yellow" }`).
+  - **Request Body:** A JSON object representing the cheese (e.g., `{ "name": "Abondance", "pricePerKilo": 50, "colour": "Yellow" }`).
   - **Response:** Returns the created cheese object with a 201 status code.
 
 ### Read Cheese Data
@@ -75,7 +89,7 @@ This API provides various endpoints for managing cheeses. Below is a list of ava
 
 - **GET** `/cheeses/:id/cost/:weight`
   - Calculates the cost of a specific cheese for a given weight (in kilograms).
-  - **Parameters:** 
+  - **Parameters:**
     - `id` - The unique identifier for the cheese.
     - `weight` - The weight of the cheese in kilograms.
   - **Response:** Returns the total cost of the cheese based on the specified weight. If the weight is invalid, returns a 400 status code.
@@ -94,7 +108,6 @@ This API provides various endpoints for managing cheeses. Below is a list of ava
   - Deletes a cheese entry by its ID.
   - **Parameters:** `id` - The unique identifier for the cheese.
   - **Response:** Returns a 204 status code (No Content) if successful; if not found, returns a 404 status code.
-
 
 ## Available Scripts
 
@@ -151,8 +164,9 @@ node dist/app.js
 For any questions or inquiries, feel free to reach out:
 
 - **Name:** Nicole Hordejan
-- **Email:** nhordejan@gmail.com
+- **Email:** <nhordejan@gmail.com>
 
 ## Technologies Used
+
 - Added user functionality to give admin users access to add, delete, and update cheeses.
 - The images are stored locally for simplicity but this is not considered scalable so the app would need a database instead.
