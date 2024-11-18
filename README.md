@@ -25,7 +25,7 @@ Vide demo link: <https://youtu.be/xBGpifkN1aM>
       - [Compile TypeScript Files](#compile-typescript-files)
       - [Start the Server](#start-the-server)
   - [Contact](#contact)
-  - [Technologies Used](#technologies-used-1)
+  - [What I would do to expand](#what-I-would-do-expand)
 
 ## Features
 
@@ -167,7 +167,7 @@ For any questions or inquiries, feel free to reach out:
 - **Name:** Nicole Hordejan
 - **Email:** <nhordejan@gmail.com>
 
-## Technologies Used
+## What I would do to expand
 
 - Added user functionality to give admin users access to add, delete, and update cheeses.
 - The images are stored locally for simplicity but this is not considered scalable so the app would need a database instead.
