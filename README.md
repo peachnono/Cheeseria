@@ -25,7 +25,7 @@ Vide demo link: <https://youtu.be/xBGpifkN1aM>
       - [Compile TypeScript Files](#compile-typescript-files)
       - [Start the Server](#start-the-server)
   - [Contact](#contact)
-  - [What I would do to expand](#what-I-would-do-expand)
+  - [What I would do to expand](#what-I-would-do-to-expand)
 
 ## Features
 
